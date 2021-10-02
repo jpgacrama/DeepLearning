@@ -1,3 +1,13 @@
+# Do the following steps on the source machine:
+# workon [environment_name]
+# pip freeze > requirements.txt
+# copy requirements.txt to other PC
+
+# On the other PC:
+# create a virtual environment using mkvirtualenv [environment_name]
+# workon [environment_name]
+# pip install -r requirements.txt
+
 absl-py==0.14.1
 appnope==0.1.2
 astunparse==1.6.3
