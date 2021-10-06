@@ -1,1 +1,12 @@
 env
+.vscode/launch.json
+
+.ipynb_checkpoints/default-a15951ea-9682-48b1-b971-d0ce573db913-checkpoint.ipynb
+
+.idea/
+
+default-a15951ea-9682-48b1-b971-d0ce573db913.ipynb
+
+.ipynb_checkpoints/
+
+.DS_Store
