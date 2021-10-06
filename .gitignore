@@ -10,3 +10,9 @@ default-a15951ea-9682-48b1-b971-d0ce573db913.ipynb
 .ipynb_checkpoints/
 
 .DS_Store
+
+miniforge3/
+
+Miniforge3-MacOSX-arm64.sh
+
+.vscode/
