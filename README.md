@@ -20,6 +20,11 @@ examples are to illustrate concepts taught in the LDL book. The examples
 should be considered in that context, and are best consumed in conjunction
 with reading the book.
 
+## APPLE SILICON INSTRUCTIONS
+1. Update to latest MacOS 12.0+
+2. Type in your terminal:
+      conda env create -f environment.yml
+
 ## Code Examples
 The code examples can be divided into three categories in the following
 three directories:
