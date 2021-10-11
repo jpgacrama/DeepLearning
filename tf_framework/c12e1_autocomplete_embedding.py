@@ -31,9 +31,10 @@ from tensorflow.keras.preprocessing.text \
     import text_to_word_sequence
 import tensorflow as tf
 import logging
+import matplotlib.pyplot as plt
 tf.get_logger().setLevel(logging.ERROR)
 
-EPOCHS = 32
+EPOCHS = 2
 BATCH_SIZE = 256
 INPUT_FILE_NAME = '../data/frankenstein.txt'
 WINDOW_LENGTH = 40
@@ -87,6 +88,30 @@ history = training_model.fit(X, y, validation_split=0.05,
                              batch_size=BATCH_SIZE, 
                              epochs=EPOCHS, verbose=2, 
                              shuffle=True)
+
+# Plotting Test and Training Loss
+loss_train = history.history['train_loss']
+loss_val = history.history['val_loss']
+epochs = range(1,EPOCHS)
+plt.plot(epochs, loss_train, 'g', label='Training loss')
+plt.plot(epochs, loss_val, 'b', label='validation loss')
+plt.title('Training and Validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+# Plot for Training Accuracy and Validation Accuracy
+loss_train = history.history['acc']
+loss_val = history.history['val_acc']
+epochs = range(1,11)
+plt.plot(epochs, loss_train, 'g', label='Training accuracy')
+plt.plot(epochs, loss_val, 'b', label='validation accuracy')
+plt.title('Training and Validation accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.show()
 
 # Build stateful model used for prediction.
 inference_model = Sequential()
