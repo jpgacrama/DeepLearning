@@ -34,7 +34,7 @@ import logging
 import matplotlib.pyplot as plt
 tf.get_logger().setLevel(logging.ERROR)
 
-EPOCHS = 2
+EPOCHS = 32
 BATCH_SIZE = 256
 INPUT_FILE_NAME = '../data/frankenstein.txt'
 WINDOW_LENGTH = 40
@@ -86,13 +86,13 @@ training_model.compile(loss='categorical_crossentropy',
 training_model.summary()
 history = training_model.fit(X, y, validation_split=0.05,
                              batch_size=BATCH_SIZE, 
-                             epochs=EPOCHS, verbose=2, 
+                             epochs=EPOCHS, verbose=1, 
                              shuffle=True)
 
 # Plotting Test and Training Loss
-loss_train = history.history['train_loss']
+loss_train = history.history['loss']
 loss_val = history.history['val_loss']
-epochs = range(1,EPOCHS)
+epochs = range(0,EPOCHS)
 plt.plot(epochs, loss_train, 'g', label='Training loss')
 plt.plot(epochs, loss_val, 'b', label='validation loss')
 plt.title('Training and Validation loss')
@@ -104,7 +104,7 @@ plt.show()
 # Plot for Training Accuracy and Validation Accuracy
 loss_train = history.history['acc']
 loss_val = history.history['val_acc']
-epochs = range(1,11)
+epochs = range(1,EPOCHS)
 plt.plot(epochs, loss_train, 'g', label='Training accuracy')
 plt.plot(epochs, loss_val, 'b', label='validation accuracy')
 plt.title('Training and Validation accuracy')
@@ -141,7 +141,7 @@ for i, word_index in enumerate(first_words_indexed):
     x[0][0] = word_index[0]
     predicted_string += first_words[i]
     predicted_string += ' '
-    y_predict = inference_model.predict(x, verbose=0)[0]
+    y_predict = inference_model.predict(x, verbose=1)[0]
 # Predict PREDICT_LENGTH words.
 for i in range(PREDICT_LENGTH):
     new_word_index = np.argmax(y_predict)
@@ -150,7 +150,7 @@ for i in range(PREDICT_LENGTH):
     x[0][0] = new_word_index
     predicted_string += word[0]
     predicted_string += ' '
-    y_predict = inference_model.predict(x, verbose=0)[0]
+    y_predict = inference_model.predict(x, verbose=1)[0]
 print(predicted_string)
 
 # Explore embedding similarities.
