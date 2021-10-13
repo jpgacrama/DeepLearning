@@ -18,3 +18,4 @@ Miniforge3-MacOSX-arm64.sh
 .vscode/
 
 /data/glove.6B.100d.txt
+data/fra.txt
