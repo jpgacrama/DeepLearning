@@ -218,7 +218,7 @@ train_dec_output, _, _, _, _ = dec_model(
 training_model = Model([train_enc_embedding_input,
                         train_dec_embedding_input],
                         train_dec_output)
-optimizer = RMSprop(lr=0.01)
+optimizer = RMSprop(learning_rate=0.01)
 training_model.compile(loss='sparse_categorical_crossentropy',
                        optimizer=optimizer, metrics =['accuracy'])
 training_model.summary()
