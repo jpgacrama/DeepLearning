@@ -250,6 +250,7 @@ np.random.seed(7)
 # Generate initial population of models.
 population = []
 for i in range(POPULATION_SIZE):
+    print(f'\nPopulation Model {i + 1} out of {POPULATION_SIZE}')
     valid_model = False
     while(valid_model == False):
         model_definition = generate_model_definition()
@@ -267,7 +268,7 @@ for i in range(generations):
         valid_model = False
         while(valid_model == False):
             rand = np.random.rand()
-            parents = random.sample(
+            parents = np.random.sample(
                 population[:POPULATION_SIZE], 2)
             parents = [parents[0][1], parents[1][1]]
             if rand < 0.5:
@@ -289,7 +290,7 @@ for i in range(generations):
     bottom = np.int(np.ceil(0.3*len(population)))
     top_individuals = population[-top:]
     remaining = np.int(len(population)/2) - len(top_individuals)
-    population = random.sample(population[bottom:-top],
+    population = np.random.sample(population[bottom:-top],
                                remaining) + top_individuals
 
 best_model = population[-1][1]
