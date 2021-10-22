@@ -263,7 +263,7 @@ for i in range(POPULATION_SIZE):
 generations = int(CANDIDATE_EVALUATIONS / POPULATION_SIZE) - 1
 for i in range(generations):
     # Generate new individuals.
-    print('\nGeneration number: ', i)
+    print(f'\nGeneration number {i + 1} out of {max(range(generations))}')
     for j in range(POPULATION_SIZE):
         valid_model = False
         while(valid_model == False):
